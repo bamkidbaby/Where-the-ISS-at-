@@ -3,8 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net"></script>
     <link rel="stylesheet" href="/src/output.css" />
     <title>Where the ISS at? (Pete)</title>
+    <style type="text/tailwindcss">
+      @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50,200..900&display=swap");
+
+      @theme {
+        --font-sans: "Inconsolata", monospace;
+      }
+    </style>
   </head>
-  <body class="bg-red-300"></body>
+  <body class="bg-red-300 h-screen flex items-center justify-center px-4">
+    <div
+      class="container px-3 py-16 bg-amber-50 max-w-7xl flex flex-col items-center gap-4 rounded-3xl"
+    >
+      <h2 class="text-3xl text-amber-700">Where the ISS at?</h2>
+      <form action="/" method="POST">
+        <input
+          type="submit"
+          value="Find"
+          class="cursor-pointer py-2 px-3.5 bg-red-400 text-white rounded-2xl"
+        />
+      </form>
+    </div>
+  </body>
 </html>

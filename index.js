@@ -5,7 +5,14 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 
-app.get("/", async (req, res) => {
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/", (req, res) => {
+  res.render("index.ejs");
+});
+
+app.post("/", async (req, res) => {
   try {
     const response = await axios.get(
       "https://api.wheretheiss.at/v1/coordinates/37.795517,-122.393693",
@@ -18,9 +25,6 @@ app.get("/", async (req, res) => {
     res.render("index.ejs", { error: error.message });
   }
 });
-
-app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
